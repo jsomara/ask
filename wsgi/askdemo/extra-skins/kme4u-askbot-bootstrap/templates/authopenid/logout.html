@@ -1,0 +1,18 @@
+{% extends "one_column_body.html" %}
+<!-- template logout.html -->
+{% block title %}{% spaceless %}{% trans %}Logout{% endtrans %}{% endspaceless %}{% endblock %}
+{% block content %}
+<div class="span10 offset1">
+	<div class="page-header">
+		<h3>{% trans %}You have successfully logged out{% endtrans %}</h3>
+	</div>
+</div>
+<script type="text/javascript">
+	window.open('','_self','');
+	window.close();
+</script>
+{% if have_federated_login_methods %}
+    <p>{% trans %}However, you still may be logged in to your OpenID provider. Please logout of your provider if you wish to do so.{% endtrans %}</p>
+{% endif %}
+{% endblock %}
+<!-- end logout.html -->
