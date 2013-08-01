@@ -151,7 +151,7 @@ DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 #TEMPLATE_DIRS = (,) #template have no effect in askbot, use the variable below
 
 #path to your private skin collection
-ASKBOT_EXTRA_SKINS_DIR = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'askdemo/extra-skins')
+ASKBOT_EXTRA_SKINS_DIR = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', '%s/extra-skins' % (os.environ['OPENSHIFT_APP_NAME'],))
 #take a look here http://askbot.org/en/question/207/
 
 TEMPLATE_CONTEXT_PROCESSORS = (
