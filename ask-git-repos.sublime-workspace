@@ -1,0 +1,413 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"s",
+				"self"
+			],
+			[
+				"__",
+				"__repr__"
+			],
+			[
+				"for",
+				"format"
+			],
+			[
+				"ex",
+				"exception"
+			],
+			[
+				"sub",
+				"submit"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 75.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"inspaca",
+				"Package Control: Install Package"
+			],
+			[
+				"pacins",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Preferences: Browse Packages"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 146.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/ahmad/git-repos/ask/ask-git-repos.sublime-project",
+		"/home/ahmad/djdemo/wsgi/djdemo/settings.py",
+		"/home/ahmad/git-repos/ask/README",
+		"/home/ahmad/djdemo/.openshift/action_hooks/deploy",
+		"/home/ahmad/ask/setup.py",
+		"/home/ahmad/djdemo/setup.py",
+		"/home/ahmad/djdemo/wsgi/askdemo/urls.py",
+		"/home/ahmad/djdemo/wsgi/askdemo/extra-skins/uxe-skin-0/media/bootstrap/css/bootstrap.css",
+		"/home/ahmad/djdemo/wsgi/askdemo/extra-skins/uxe-skin-0/media/style/style.css",
+		"/home/ahmad/djdemo/wsgi/askdemo/extra-skins/uxe-skin-0/templates/widgets/header.html",
+		"/home/ahmad/djdemo/wsgi/askdemo/extra-skins/uxe-skin-0/templates/debug_header.html",
+		"/home/ahmad/djdemo/wsgi/askdemo/extra-skins/uxe-skin-0/templates/faq_static.html",
+		"/home/ahmad/djdemo/wsgi/askdemo/extra-skins/uxe-skin-0/templates/widgets/ask_button.html",
+		"/home/ahmad/djdemo/wsgi/askdemo/extra-skins/uxe-skin-0/templates/widgets/footer.html",
+		"/home/ahmad/ask1/demo/settings.py",
+		"/home/ahmad/ask1/demo/urls.py",
+		"/home/ahmad/djdemo/wsgi/application",
+		"/home/ahmad/djdemo/wsgi/.htaccess",
+		"/home/ahmad/djdemo/.openshift/action_hooks/build",
+		"/home/ahmad/djdemo/wsgi/askdemo/settings.py",
+		"/home/ahmad/djdemo/wsgi/askdemo/askbot/doc/source/deployment.rst",
+		"/home/ahmad/djdemo/wsgi/askdemo/openshiftlibs.py",
+		"/home/ahmad/djdemo/wsgi/askdemo/djangowsgi",
+		"/home/ahmad/djdemo/wsgi/djdemo/urls.py",
+		"/home/ahmad/djdemo/djdemo/wsgi/askdemo/settings.py",
+		"/home/ahmad/djdemo/djdemo/wsgi/askdemo/askbot/doc/source/deployment.rst",
+		"/home/ahmad/djdemo/djdemo/setup.py",
+		"/home/ahmad/djdemo/wsgi/djdemo/openshiftlibs.py",
+		"/home/ahmad/djdemo/wsgi/djdemo/views.py",
+		"/home/ahmad/ask1/askbot/setup_templates/django.wsgi",
+		"/home/ahmad/edx_all/edx-platform/common/djangoapps/external_auth/views.py",
+		"/home/ahmad/edx_all/edx-platform/lms/djangoapps/courseware/views.py",
+		"/home/ahmad/edx_all/edx-platform/lms/envs/dev.py",
+		"/home/ahmad/edx_all/edx-platform/lms/templates/navigation.html",
+		"/home/ahmad/edx_all/edx-platform/lms/djangoapps/courseware/urls.py",
+		"/home/ahmad/edx_all/edx-platform/cms/urls.py",
+		"/home/ahmad/edx_all/edx-platform/common/lib/xmodule/xmodule/modulestore/__init__.py",
+		"/home/ahmad/edx_all/edx-platform/common/static/js/vendor/backbone-min.js",
+		"/home/ahmad/edx_all/edx-platform/cms/djangoapps/contentstore/views/user.py",
+		"/home/ahmad/edx_all/edx-platform/cms/djangoapps/contentstore/utils.py",
+		"/home/ahmad/edx_all/edx-platform/common/lib/xmodule/xmodule/modulestore/django.py",
+		"/home/ahmad/edx_all/edx-platform/common/djangoapps/course_groups/admin.py",
+		"/home/ahmad/edx_all/edx-platform/lms/urls.py",
+		"/home/ahmad/edx_all/edx-platform/cms/envs/dev.py",
+		"/home/ahmad/.virtualenvs/edx-platform/src/xblock/xblock/core.py",
+		"/home/ahmad/edx_all/log/edx.log",
+		"/home/ahmad/edx_all/edx-platform/cms/envs/common.py",
+		"/home/ahmad/edx_all/edx-platform/lms/envs/common.py",
+		"/home/ahmad/edx_all/edx-platform/cms/djangoapps/contentstore/admin.py",
+		"/home/ahmad/edx_all/edx-platform/common/djangoapps/heartbeat/admin.py",
+		"/home/ahmad/edx_all/edx-platform/cms/djangoapps/contentstore/views/course.py",
+		"/home/ahmad/edx_all/edx-platform/cms/djangoapps/contentstore/tests/test_contentstore.py",
+		"/etc/hosts",
+		"/home/ahmad/edx_all/edx-platform/cms/xmodule_namespace.py",
+		"/home/ahmad/edx_all/edx-platform/lms/templates/course.html",
+		"/home/ahmad/edx_all/edx-platform/lms/templates/register.html",
+		"/home/ahmad/edx_all/edx-platform/cms/djangoapps/models/settings/course_details.py",
+		"/home/ahmad/edx_all/edx-platform/cms/envs/test.py",
+		"/home/ahmad/ask1/dep/settings.py",
+		"/home/ahmad/edx_all/edx-platform/cms/one_time_startup.py",
+		"/home/ahmad/edx_all/edx-platform/cms/envs/dev_with_worker.py",
+		"/home/ahmad/edx_all/edx-platform/cms/envs/dev_ike.py",
+		"/home/ahmad/edx_all/edx-platform/cms/envs/aws.py",
+		"/home/ahmad/edx_all/edx-platform/cms/envs/acceptance.py",
+		"/home/ahmad/edx_all/log/tracking.log",
+		"/home/ahmad/edx_all/edx-platform/conf/locale/config",
+		"/etc/hostapd/hostapd.conf",
+		"/etc/openerp-server.conf",
+		"/var/www/wordpress/gisics/wp-config.php",
+		"/home/ahmad/.gitconfig",
+		"/var/www/info.php",
+		"/etc/apache2.conf",
+		"/etc/hostname",
+		"/home/ahmad/Desktop/gisics/gisics-main/home.php",
+		"/home/ahmad/Desktop/gisics/gisics-main/index.php",
+		"/home/ahmad/.jsscripts/hello",
+		"/home/ahmad/.bash_profile",
+		"/home/ahmad/z-edx_all/edx-platform/requirements/edx/base.txt",
+		"/home/ahmad/edx_all/edx-platform/scripts/create-dev-env.sh",
+		"/home/ahmad/z-edx_all/edx-platform/scripts/create-dev-env.sh",
+		"/etc/postgresql/9.1/main/pg_hba.conf",
+		"/etc/postgresql/9.1/main/postgresql.conf",
+		"/home/ahmad/.profile",
+		"/home/ahmad/.bashrc"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"openshift",
+			"useremailverifier",
+			"add_useremailverifier",
+			"0006_auto__add_useremailverifier",
+			"openshift",
+			"askdemo",
+			"openshift",
+			"openshift ",
+			"{% url ",
+			"csrf_token",
+			"xslt",
+			"secondar",
+			".votes",
+			"<-- History.js",
+			"History.js",
+			"Your karma is 1",
+			"hovercard",
+			"class=\"hovercard\"",
+			"style=\"top: 48px;",
+			"secondary",
+			"header",
+			"content-wrap",
+			"APP_TITLE",
+			"Centro de Ayuda",
+			"extra",
+			"/skins/",
+			"ASKBOT_ROOT",
+			"extra",
+			"cache",
+			"OPENSHIFT_INTERNAL_IP",
+			"media",
+			"CACHE",
+			"ASKBOT_ROOT",
+			"STATIC_ROOT",
+			"PROJECT_ROOT",
+			"media",
+			"opensh",
+			"PROJECT_DIR",
+			"media",
+			"CHASH",
+			"ADMIN_MEDIA_PREFIX",
+			"os.en",
+			"openshift",
+			"openshiftlibs",
+			"copydemo",
+			"openshift/",
+			"openshift/action_hooks",
+			"openshift/",
+			"PROJECT_DIR",
+			"django.wsgi",
+			"import openshift ",
+			"import openshift",
+			"from openshift",
+			"openshift.urls",
+			"django.wsgi",
+			"course-specific-register",
+			"course_specific_register",
+			"enrollment_domain",
+			"RESTRICT_ENROLL_BY_REG_METHOD'",
+			"RESTRICT_ENROLL_BY_REG_METHOD",
+			"course-specific-register",
+			"display_name",
+			"strings",
+			"dict_",
+			"list_",
+			"from django.utils.encoding import smart_str\nfrom django.utils.encoding import smart_str\nfrom django.utils.encoding import smart_str\nfrom django.utils.encoding import smart_str\n",
+			"ns",
+			"_asdict",
+			"dict",
+			"url",
+			"LocationBase",
+			"_LocationBase",
+			"__init__",
+			"metaclass",
+			"staticmethod",
+			"get_course_id",
+			"get_lms_li",
+			"settings_details",
+			"CourseOutline",
+			"CoursePageNames",
+			"get_url_re",
+			"course_filter",
+			"_asdict",
+			"from django.utils.encoding ",
+			"from django.utils",
+			"location",
+			"log",
+			"LMS_BASE",
+			"plugin",
+			"type",
+			"classmethod",
+			"FUNCTION_KEYS",
+			"MODULESTORE",
+			"_MODULESTORES",
+			"modulestore",
+			"filter",
+			"mongo",
+			"number",
+			"org",
+			"name",
+			"org",
+			"name",
+			"DATABASES",
+			"database",
+			"org",
+			"name",
+			"admin",
+			"autodiscover",
+			" re",
+			"namedtuple",
+			"_LocationBase",
+			"display_name",
+			"INVALID_CHARS",
+			"invalid",
+			"Invalid characters in",
+			"Unable to create course",
+			"Invalid characters in",
+			"Location",
+			"Unable to create course",
+			"var org",
+			"closest",
+			"token",
+			"change_en",
+			"class_enr",
+			"register",
+			"login",
+			"click",
+			"register"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": true,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"cours_a",
+				"lms/templates/courseware/course_about.html"
+			],
+			[
+				"backbone",
+				"common/static/js/vendor/backbone-min.js"
+			],
+			[
+				"cmscontsvius",
+				"cms/djangoapps/contentstore/views/user.py"
+			],
+			[
+				"cmscontenstoruti",
+				"cms/djangoapps/contentstore/utils.py"
+			],
+			[
+				"modulestore/_in",
+				"common/lib/xmodule/xmodule/modulestore/__init__.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"",
+				"/home/ahmad/git-repos/ask/ask-git-repos.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 260.0,
+	"status_bar_visible": true
+}
