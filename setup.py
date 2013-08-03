@@ -13,8 +13,9 @@ setup(name='Asknion',
                         'gevent',
                         'Django<=1.4', 
                         'python-memcached>=1.31',
-                        #  'MySQL-python',
-                        #  'pymongo',
+                        # 'mysql-python',
                         # 'psycopg2',
+                        #  'pymongo',
+                        
       ],
      )
