@@ -12,9 +12,9 @@ setup(name='Asknion',
       install_requires=['greenlet', 
                         'gevent',
                         'Django<=1.4', 
-                        'python-memcached>=1.31'
+                        'python-memcached>=1.31',
                         #  'MySQL-python',
                         #  'pymongo',
-                         'psycopg2',
+                        # 'psycopg2',
       ],
      )
