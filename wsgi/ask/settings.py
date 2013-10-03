@@ -19,7 +19,7 @@ TEMPLATE_DEBUG = False#keep false when debugging jinja2 templates
 INTERNAL_IPS = ('127.0.0.1',)
 
 ADMINS = (
-    ('Ahmad AbdAraahman', 'mygooglizer@gmail.com'),
+    ('Jordan OMara', 'jomara@redhat.com'),
 )
 
 MANAGERS = ADMINS
@@ -70,7 +70,7 @@ IMAP_USE_TLS = False
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Africa/Cairo'
+TIME_ZONE = 'Europe/Prague'
 
 SITE_ID = 1
 
@@ -94,7 +94,7 @@ STATIC_ROOT = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', 'static
 ADMIN_MEDIA_PREFIX = STATIC_URL + 'admin/'
 
 # Make up some unique string, and don't share it with anybody.
-SECRET_KEY = '3af478e06sla-0w@!@#a815b9e6fdf09efc41b360e'
+SECRET_KEY = '6af478e06sla-0w#!@#a815b9e6fdf09efc41b360e'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -200,7 +200,7 @@ CACHE_BACKEND = 'locmem://'
 CACHE_TIMEOUT = 6000
 #sets a special timeout for livesettings if you want to make them different
 LIVESETTINGS_CACHE_TIMEOUT = CACHE_TIMEOUT
-CACHE_PREFIX = 'asknion' #make this unique
+CACHE_PREFIX = 'ask' #make this unique
 CACHE_MIDDLEWARE_ANONYMOUS_ONLY = True
 #If you use memcache you may want to uncomment the following line to enable memcached based sessions
 #SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
