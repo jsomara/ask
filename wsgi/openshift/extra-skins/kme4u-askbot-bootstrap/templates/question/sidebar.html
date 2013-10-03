@@ -1,0 +1,189 @@
+{% import "macros.html" as macros %}
+
+{% include "main_page/support_actions.html" %}
+{% if settings.SIDEBAR_QUESTION_HEADER %}
+<div class="box">
+    {{ settings.SIDEBAR_QUESTION_HEADER }}
+</div>
+{% endif %}
+<div class="">
+    <div class="page-header muted"><h4>{% trans %}Question tools{% endtrans %}</h4></div>
+    {% if favorited %}
+        <strong><a class="button followed pull-right" 
+            alt="{% trans %}click to unfollow this question{% endtrans %}">
+            <div>{% trans %}Following{% endtrans %}</div>
+            <div class='unfollow'>{% trans %}Unfollow{% endtrans %}</div>
+        </a></strong>
+        <br>
+    {% else %}
+        <strong><a class="button followed pull-right"
+            alt="{% trans %}click to follow this question{% endtrans %}">
+            {%trans %}Follow{%endtrans%}
+        </a></strong>
+        <br>
+    {% endif %}
+    <div class="clearfix"></div>
+    <div id="favorite-number" class="favorite-number{% if favorited %} my-favorite-number{% endif %}">
+        {% set follower_count = thread.favourite_count %}
+        {% if follower_count > 0 %}
+            {% trans count=follower_count %}{{count}} follower{% pluralize %}{{count}} followers{% endtrans %}
+        {% endif %}
+    </div>
+    <div class="notify-sidebar">
+        {%if request.user.is_authenticated() %}
+         <label class="checkbox">
+            <input 
+                type="checkbox"
+                id="question-subscribe-sidebar"
+                {% if thread.is_followed_by(request.user) %}
+                    checked="checked"
+                {% endif %}
+            />
+            {% trans %}email the updates{% endtrans %}
+        </label>
+        {%else%}
+        <label class="checkbox">
+            <input type="checkbox" id="question-subscribe-sidebar"/>
+            {% trans %}<strong>Here</strong> (once you log in) you will be able to sign up for the periodic email updates about this question.{% endtrans %}
+        </label>
+        {%endif%}
+        {% if settings.RSS_ENABLED %}
+        <p class="rss">
+            <a
+                href="{{settings.APP_URL}}/feeds/question/{{ question.id }}"
+                title="{% trans %}subscribe to this question rss feed{% endtrans %}"
+                >{% trans %}subscribe to rss feed{% endtrans %}</a>
+        </p>
+        {% endif %}
+    </div> 
+</div>
+
+<div class="clearfix"></div>
+{#
+{% if settings.GROUPS_ENABLED %}
+<div class="">
+    {% if thread.is_private() %}
+        <div class="page-header"><h4>{% trans %}Invite{% endtrans %}</h4></div>
+        <p style="margin: 16px 0"
+        >Invite others to help answer this question</p>
+        <form action="{% url share_question_with_user %}" method="post">{% csrf_token %}
+            <input id="share_user_name" type="text" class="groups-input" name="recipient_name" />
+            <input type="hidden" name="thread_id" value="{{ thread.id }}"/>
+            <input type="submit" class="add-groups" value="{% trans %}add{% endtrans %}"/>
+        </form>
+        <p class="share-input-col">{% trans %}- or -{% endtrans %}</p>
+        <form action="{% url share_question_with_group %}" method="post">{% csrf_token %}
+            <input id="share_group_name" type="text" class="groups-input" name="recipient_name" />
+            <input type="hidden" name="thread_id" value="{{ thread.id }}"/>
+            <input type="submit" class="add-groups" value="{% trans %}add{% endtrans %}"/>
+        </form>
+        <p class="share-input-col">{% trans %}- or -{% endtrans %}</p>
+        <form action="{% url share_question_with_group %}" method="post">{% csrf_token %}
+            <input
+                type="hidden"
+                name="recipient_name"
+                value="{{ settings.GLOBAL_GROUP_NAME }}"
+            />
+            <input type="hidden" name="thread_id" value="{{ thread.id }}"/>
+            <p class="share-input-col">
+            <input 
+                type="submit"
+                class="add-groups add-everyone-group"
+                value="{% trans %}share with everyone{% endtrans %}"
+            />
+            </p>
+        </form>
+
+        {% set shared_users_count = sharing_info['users'].count() %}
+        {% set shared_groups_count = sharing_info['groups'].count() %}
+
+        {% if shared_users_count or shared_groups_count %}
+            <p 
+                class="muted"
+            >{% trans %}This question is currently shared only with:{% endtrans %}</p>
+        {% endif %}
+        <div class="page-header"><h5>{% trans %}Individual users{% endtrans %}</h5></div>
+            {% set comma = joiner(',') %}
+            {{ comma() }}
+        <p>
+        <a href="{{ request.user.get_profile_url() }}">
+            {% trans %}You{% endtrans -%}
+        </a>{%- if shared_users_count -%}
+                {%- for user in sharing_info['users'] %}{{ comma() }}
+                    {{ user.get_profile_link() }}
+                {%- endfor -%}
+            {% endif -%}
+            {%- if sharing_info['more_users_count'] > 0 %}
+                {% trans %}and{% endtrans %}
+                <a 
+                    class="see-related-users"
+                    data-url="{% url get_thread_shared_users %}"
+                    data-thread-id="{{ thread.id }}"
+                >{% trans 
+                        more_count=sharing_info['more_users_count'] 
+                    %}{{ more_count }} more{% endtrans %}
+                </a>
+            {% endif %}
+        </p>
+
+        {% if shared_groups_count %}
+            <div class="page-header"><h5>{% trans %}Groups{% endtrans %}</h5></div>
+            <p>
+                {% set comma = joiner(',') %}
+                {%- for group in sharing_info['groups'] -%}{{ comma() }}
+                    {{ macros.user_group_link(group) }}
+                {%- endfor -%}
+                {% if sharing_info['more_groups_count'] > 0 %}
+                    {% trans %}and{% endtrans %}
+                    <a 
+                        class="see-related-groups"
+                        data-url="{% url get_thread_shared_groups %}"
+                        data-thread-id="{{ thread.id }}"
+                    >{% trans more_count=sharing_info['more_groups_count'] %}{{ more_count }} more{% endtrans %}
+                    </a>
+                {% endif %}
+            </p>
+        {% endif %}
+    {% else %}
+        <div class="page-header muted"><h4>{% trans %}Public thread{% endtrans %}</h4></div>
+        <p class="text-info">{% trans site_name=settings.APP_SHORT_NAME %}This thread is public, all members of {{ site_name }} can read this page.{% endtrans %}</p>
+    {% endif %}
+</div>
+{% endif %}
+#}
+{% if settings.SIDEBAR_QUESTION_SHOW_META %}
+<div class="statsWidget">
+    <div class="clearfix"></div>
+    <div class="page-header muted"><h4>{% trans %}Stats{% endtrans %}</h4></div>
+    <p>
+        {% trans %}Asked{% endtrans %}: <strong>{{ macros.timeago(question.added_at) }}</strong>
+    </p>
+    <p> 
+        {% trans %}Seen{% endtrans %}: <strong>{{ thread.view_count|intcomma }} {% trans %}times{% endtrans %}</strong>
+    </p>
+    <p>
+        {% trans %}Last updated{% endtrans %}: <strong title="{{ thread.last_activity_at }}">{{thread.last_activity_at|diff_date}}</strong>
+    </p>
+</div>
+{% endif %}
+
+{% if similar_threads.data() and settings.SIDEBAR_QUESTION_SHOW_RELATED %}
+    {#% cache 1800 "related_questions" related_questions question.id language_code %#}
+    <div class="box">
+        <h2>{% trans %}Related questions{% endtrans %}</h2>
+        <div class="questions-related">
+            {% for thread_dict in similar_threads.data() %}
+            <p>
+                <a href="{{ thread_dict.url }}">{{ thread_dict.title|escape }}</a>
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+    {#% endcache %#}
+{% endif %}
+
+{% if settings.SIDEBAR_QUESTION_FOOTER %}
+    <div class="box">
+        {{ settings.SIDEBAR_QUESTION_FOOTER }}
+    </div>
+{% endif %}

@@ -1,0 +1,98 @@
+{% from "macros.html" import user_country_flag, tag_list_widget, timeago, user_primary_group %}
+
+<div class="span12 well well-small pull-right {% if extra_class %} {{extra_class}}{% endif %}" id="question-{{question.id}}">
+    <div class="row-fluid">
+        <div class="span8">
+            <div class="row-fluid">
+                <div class="span12">
+                    <h3>
+                        <a title="{{question.summary|escape}}" href="{{ question.get_absolute_url(thread=thread) }}">{{thread.get_title(question)|escape}}
+                        </a>
+                    </h3>
+                    <div class="span3">
+                        {{ timeago(thread.last_activity_at) }}
+                        {% if question.is_anonymous %}
+                            <span class="anonymous">{{ thread.last_activity_by.get_anonymous_name() }}</span>
+                        {% else %}
+                            <a href="{% url user_profile thread.last_activity_by.id, thread.last_activity_by.username|slugify %}">{{thread.last_activity_by.username|escape}}</a> {{ user_country_flag(thread.last_activity_by) }}
+                            {#{user_score_and_badge_summary(thread.last_activity_by)}#}
+                        {% endif %}
+                        {#}
+                        {% if thread.last_activity_by.get_primary_group() %}-{% endif %}
+                        {{ user_primary_group(thread.last_activity_by) }}#}
+                    </div>
+                    <div class="span8">
+                        {{ tag_list_widget(thread.get_tag_names(), search_state=search_state) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="span4">
+            <div id="box-label-view" class="count-label-box text-center label 
+                {% if thread.view_count == 0 -%}
+                    label-warning
+                {% else -%}
+                    {% if thread.view_count > 0 and thread.view_count < 10 %}
+                        label-info
+                    {% else %}
+                        label-success
+                    {% endif %}
+                {%- endif -%}" style="padding:10px;">
+            <strong><span>
+                {{thread.view_count|humanize_counter}}
+            </span></strong>
+            <div>
+            <strong>
+                {% trans cnt=thread.view_count %}view{% pluralize %}views{% endtrans %}
+            </strong>
+            </div>
+        </div>
+        {% set answer_count = thread.get_answer_count(visitor) %}
+        <div id="box-label-answer" class="count-label-box text-center label {% if answer_count == 0 -%}
+                            label-warning
+                        {% else -%}
+                            {%- if thread.accepted_answer_id -%}  {# INFO: Use _id to not fetch the whole answer post #}
+                                label-info
+                            {%- else -%}
+                                 {% if answer_count > 0 and answer_count < 10 -%}
+                                    label-info
+                                {% else %}
+                                    label-success
+                                {% endif %}
+                            {%- endif -%}
+                        {%- endif -%}" style="padding:10px;"> 
+            <strong>
+                <span>
+                {{ answer_count|humanize_counter }}{% if thread.accepted_answer_id %}{% endif %}
+                </span>
+            </strong>
+            <div>
+            <strong>
+                {% trans cnt = answer_count %}answer{% pluralize %}answers{% endtrans %}
+            </strong>
+            </div>
+        </div>
+        <div id="box-label-vote" class="count-label-box text-center label 
+                    {% if question.score == 0 -%}
+                        label-warning
+                    {% else -%}
+                        {% if question.score > 0 and question.score < 10 -%}
+                            label-info
+                        {% else %}
+                            label-success
+                        {% endif %}
+                    {%- endif -%}" style="padding:10px;">
+            <strong>
+                <span>
+                {{question.score|humanize_counter}}
+                </span>
+            </strong>
+            <div>
+            <strong>
+                {% trans cnt=question.score %}vote{% pluralize %}votes{% endtrans %}
+            </strong>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

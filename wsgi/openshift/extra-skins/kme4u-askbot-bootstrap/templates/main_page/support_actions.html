@@ -1,0 +1,32 @@
+<div id="support-box" class="row-fluid">
+	<div class="page-header muted"><h4>{% trans %}¿En qué podemos ayudarte?{% endtrans %}</h4></div>
+	{% if agent_is_online %}
+		<div id="chat_box" class="span5">
+			<a href="{{ INSTANCE_URL }}chat/cats-{{ INSTANCE_NAME }}-{{ agent }}" target="_blank">
+				<img src="/m/kme4u-askbot-bootstrap/media/images/foro_soporte/Chat_{{agent_type}}_Activo.png">  
+			</a>
+		</div>
+		<div id="message_box" class="span5">
+			<img src="/m/kme4u-askbot-bootstrap/media/images/foro_soporte/Mensaje_{{agent_type}}_Inactivo.png">
+		</div>
+	{% else %}
+		<div id="chat_box" class="span5">
+			<img src="/m/kme4u-askbot-bootstrap/media/images/foro_soporte/Chat_{{agent_type}}_Inactivo.png">
+		</div>
+		<div id="message_box" class="span5">
+			<a href="" role="button" data-target="#send_help_message" data-toggle="modal">
+				<img src="/m/kme4u-askbot-bootstrap/media/images/foro_soporte/Mensaje_{{agent_type}}_Activo.png">
+			</a>
+		</div>
+	{% endif %}
+
+	<div id="send_help_message" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="message_box" aria-hidden="true">
+		<div class="modal-header">
+			<button id="close_message_box" type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3 class="muted" id="myModalLabel">{% trans %}Message{% endtrans %}</h3>
+		</div>
+		<div class="modal-body">
+			<iframe src="{{ INSTANCE_URL }}messages/compose_help/{% if group_id %}?group_id={{ group_id }}{% endif %}" height="320px" width="100%"></iframe>
+		</div>
+	</div>
+</div>

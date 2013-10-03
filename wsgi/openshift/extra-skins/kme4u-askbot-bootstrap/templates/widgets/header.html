@@ -1,0 +1,27 @@
+<!-- template header.html -->
+{% import "macros.html" as macros %}
+
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container-fluid">
+				{% if settings.SHOW_LOGO %}
+					{% include "widgets/logo.html" %}
+				{% endif %}
+				<ul class="nav">
+					{% include "widgets/user_navigation.html" %}
+				</ul>
+
+				<div class="nav-collapse collapse">
+					<ul class="nav pull-right">
+						{% include "widgets/meta_nav.html" %}
+					</ul>
+				</div>
+		</div>
+	</div>
+</div>
+<!-- end template header.html -->
+<!--Title-->
+<div class="page-header text-center">
+	<h1 class="muted">Centro de Ayuda T&eacute;cnica y Soluciones</h1>
+</div>
+<!--End title-->
