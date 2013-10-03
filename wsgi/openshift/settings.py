@@ -24,7 +24,7 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
- DATABASES = {
+DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.postgresql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
          'NAME': os.environ['OPENSHIFT_APP_NAME'],                     # Or path to database file if using sqlite3.
