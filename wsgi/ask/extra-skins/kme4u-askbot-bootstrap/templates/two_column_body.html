@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body_class %}two-col{% endblock %}
+{% block body %}
+<div class="span10 offset1">
+	<div class="row-fluid">
+		<div class="span9">
+		    {% block content%}
+		    {% endblock%}
+		</div>
+		<div class="span3">
+		    {% block sidebar%}
+		    {% endblock%}
+		</div>
+	</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+<div class="">
+        <h2 id="questionCount">
+        {% trans counter=answer_count %}
+            {{counter}} Answer
+            {% pluralize %}
+            {{counter}} Answers
+        {% endtrans %}
+        </h2>
+    <ul class="nav nav-pills pull-right">
+        <li>
+            <a href="#"><span class="label">
+            {% trans %}Sort by »{% endtrans %}
+            </span></a>
+        </li>
+        <li>
+            <a id="oldest" href="{{ question.get_absolute_url() }}?sort=oldest#sort-top"
+           title="{% trans %}oldest answers will be shown first{% endtrans %}"
+                ><span>{% trans %}oldest{% endtrans %}</span>
+            </a>
+        </li>
+        <li>
+            <a id="latest" href="{{ question.get_absolute_url() }}?sort=latest#sort-top"
+           title="{% trans %}newest answers will be shown first{% endtrans %}"
+                ><span>{% trans %}newest{% endtrans %}</span>
+            </a>
+        </li>
+        <li>
+            <a id="votes" href="{{ question.get_absolute_url() }}?sort=votes#sort-top"
+           title="{% trans %}most voted answers will be shown first{% endtrans %}"
+                ><span>{% trans %}most voted{% endtrans %}</span>
+            </a>
+        </li>
+    </ul>
+</div>

@@ -9,5 +9,13 @@ setup(
     author='Your Name',
     author_email='example@example.com',
     url='http://www.python.org/sigs/distutils-sig/',
-    install_requires=['Django<=1.4'],
-)
+    install_requires=['greenlet', 
+                      'gevent',
+                      'Django<=1.4', 
+                      'python-memcached>=1.31',
+                      # 'mysql-python',
+                      # 'psycopg2',
+                      #  'pymongo',
+                        
+    ],
+   )
