@@ -13,6 +13,7 @@ site.addsitedir(os.path.join(ASKBOT_ROOT, 'deps'))
 ON_OPENSHIFT = False
 if os.environ.has_key('OPENSHIFT_REPO_DIR'):
     ON_OPENSHIFT = True
+    site.addsitedir(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'data/askbot-devel'))
 
 DEBUG = True#set to True to enable debugging
 TEMPLATE_DEBUG = False#keep false when debugging jinja2 templates
@@ -172,7 +173,7 @@ DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
 
 #TEMPLATE_DIRS = (,) #template have no effect in askbot, use the variable below
-ASKBOT_EXTRA_SKINS_DIR = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', '%s/extra-skins' % (os.environ['OPENSHIFT_APP_NAME'],)) #path to your private skin collection
+ASKBOT_EXTRA_SKINS_DIR = os.path.join(os.environ.get('OPENSHIFT_REPO_DIR'), 'wsgi', '%s/extra-skins' % ('openshift',)) #path to your private skin collection
 #take a look here http://askbot.org/en/question/207/
 
 TEMPLATE_CONTEXT_PROCESSORS = (
