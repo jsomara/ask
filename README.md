@@ -49,7 +49,7 @@ Then push the repo upstream
 
 Here, the [admin user name and password will be displayed](#admin-user-name-and-password), so pay
 special attention.
-	
+
 That's it. You can now checkout your application at:
 
     http://django-$yournamespace.rhcloud.com
