@@ -1,0 +1,10 @@
+{% cache 600 "contributors" contributors search_tags scope sort query context.page language_code %}
+  {#<div id="contrib-users" class="">
+  <div class="page-header muted"><h4>{% trans %}Contributors{% endtrans %}</h4></div>
+  {% spaceless %}
+  {% for person in contributors %}
+    {{ macros.gravatar(person,48) }}
+  {% endfor %}
+  {% endspaceless %}
+  </div> #}
+{% endcache %}

@@ -1,0 +1,17 @@
+{% if request.user.is_authenticated() %}
+    <p>
+        
+        <label for="question-subscribe-updates">
+            {{ answer.email_notify }}
+            {% trans %}Email me when there are any new answers{% endtrans %}
+        </label>
+    </p>
+{% else %}
+    <p>
+        
+        <label>
+            {{ answer.email_notify }}
+            {% trans %}<span class='strong'>Here</span> (once you log in) you will be able to sign up for the periodic email updates about this question.{% endtrans %}
+        </label>
+    </p>
+{% endif %}

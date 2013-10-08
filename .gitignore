@@ -1,0 +1,15 @@
+*.sw[po]
+*.bak
+*.orig
+*~
+*.egg-info
+*.pot
+*.py[co]
+.project
+.pydevproject
+MANIFEST
+dist/
+docs/_build/
+docs/locale/
+tests/coverage_html/
+tests/.coverage
