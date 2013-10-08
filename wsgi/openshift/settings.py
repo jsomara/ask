@@ -20,23 +20,23 @@ TEMPLATE_DEBUG = False#keep false when debugging jinja2 templates
 INTERNAL_IPS = ('127.0.0.1',)
 
 ADMINS = (
-    ('Ahmad AbdAraahman', 'mygooglizer@gmail.com'),
+    ('Jordan OMara', 'jomara@redhat.com'),
 )
 
 MANAGERS = ADMINS
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-#         'NAME': os.environ['OPENSHIFT_APP_NAME'],                     # Or path to database file if using sqlite3.
-#         'USER': os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],                      # Not used with sqlite3.
-#         'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],                  # Not used with sqlite3.
-#         'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],                      # Set to empty string for localhost. Not used with sqlite3.
-#         'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],                      # Set to empty string for default. Not used with sqlite3.
-#         'TEST_CHARSET': 'utf8',              # Setting the character set and collation to utf-8
-#         'TEST_COLLATION': 'utf8_general_ci', # is necessary for MySQL tests to work properly.
-#     }
-# }
+ DATABASES = {
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+         'NAME': os.environ['OPENSHIFT_APP_NAME'],                     # Or path to database file if using sqlite3.
+         'USER': os.environ['OPENSHIFT_POSTGRESQL_DB_USERNAME'],                      # Not used with sqlite3.
+         'PASSWORD': os.environ['OPENSHIFT_POSTGRESQL_DB_PASSWORD'],                  # Not used with sqlite3.
+         'HOST': os.environ['OPENSHIFT_POSTGRESQL_DB_HOST'],                      # Set to empty string for localhost. Not used with sqlite3.
+         'PORT': os.environ['OPENSHIFT_POSTGRESQL_DB_PORT'],                      # Set to empty string for default. Not used with sqlite3.
+         'TEST_CHARSET': 'utf8',              # Setting the character set and collation to utf-8
+         'TEST_COLLATION': 'utf8_general_ci', # is necessary for MySQL tests to work properly.
+     }
+ }
 
 # DATABASES = {
 #     'default': {
@@ -51,18 +51,18 @@ MANAGERS = ADMINS
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': os.path.join(os.environ['OPENSHIFT_DATA_DIR'], 'askbotdb'),                     # Or path to database file if using sqlite3.
-        'USER': '',                      # Not used with sqlite3.
-        'PASSWORD': '',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        'TEST_CHARSET': 'utf8',              # Setting the character set and collation to utf-8
-        'TEST_COLLATION': 'utf8_general_ci', # is necessary for MySQL tests to work properly.
-    }
-}
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+#        'NAME': os.path.join(os.environ['OPENSHIFT_DATA_DIR'], 'askbotdb'),                     # Or path to database file if using sqlite3.
+#        'USER': '',                      # Not used with sqlite3.
+#        'PASSWORD': '',                  # Not used with sqlite3.
+#        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+#        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+#        'TEST_CHARSET': 'utf8',              # Setting the character set and collation to utf-8
+#        'TEST_COLLATION': 'utf8_general_ci', # is necessary for MySQL tests to work properly.
+#    }
+#}
 
 #outgoing mail server settings
 SERVER_EMAIL = ''
@@ -97,7 +97,7 @@ IMAP_USE_TLS = False
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Africa/Cairo'
+TIME_ZONE = 'Europe/Prague'
 
 SITE_ID = 1
 
