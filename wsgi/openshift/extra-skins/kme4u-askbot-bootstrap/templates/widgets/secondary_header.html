@@ -1,0 +1,29 @@
+<!-- template secondary_header.html -->
+
+<div class="navbar">
+    <div class="navbar-inner">
+        {% set enabled_scopes_class = 'scopes-' + 
+            '%s'|format(settings.ALL_SCOPE_ENABLED) + '-' +
+            '%s'|format(settings.UNANSWERED_SCOPE_ENABLED) + '-' +
+            '%s'|format((request.user.is_authenticated() and settings.FOLLOWED_SCOPE_ENABLED))
+        %}
+        <form class="navbar-form"
+            {% if active_tab == "tags" %}
+                action="{% url tags %}" 
+            {% elif active_tab == "users" %}
+                action="" 
+            {% else %}
+                action="{% url questions %}" id="searchForm"
+            {% endif %}
+            method="get">
+            <div>
+                <a class="brand pull-left" href="{% url questions %}"><i class="icon-home"></i></a>
+                {% include "widgets/scope_nav.html" %}
+                {% if settings.ASK_BUTTON_ENABLED %}
+                    {% include "widgets/ask_button.html" %}
+                {% endif %}
+            </div>
+            {% include "widgets/search_bar.html" %}
+        </form>
+    </div>
+</div>

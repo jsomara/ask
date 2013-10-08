@@ -1,0 +1,121 @@
+<script type="text/javascript">
+	{# cant cache this #}
+	askbot['settings']['showSortByRelevance'] = {{ show_sort_by_relevance|as_js_bool }};
+</script>
+
+
+{% compress js %}
+<script type="text/javascript">
+	/*<![CDATA[*/
+	$(document).ready(function(){
+		/*var on_tab = '#nav_questions';
+		$(on_tab).attr('className','on');*/
+		Hilite.exact = false;
+		Hilite.elementid = "question-list";
+		Hilite.debug_referrer = location.href;
+		{% if update_avatar_data == True %}
+			var today = new Date();{#add timestamp to prevent browser caching #}
+			$.getJSON('{% url user_update_has_custom_avatar %}?t=' + today.getTime());
+		{% endif %}
+	});
+
+	askbot['urls']['mark_interesting_tag'] = '{% url mark_interesting_tag %}';
+	askbot['urls']['mark_ignored_tag'] = '{% url mark_ignored_tag %}';
+	askbot['urls']['mark_subscribed_tag'] = '{% url mark_subscribed_tag %}';
+	askbot['urls']['unmark_tag'] = '{% url unmark_tag %}';
+	askbot['urls']['set_tag_filter_strategy'] = '{% url "set_tag_filter_strategy" %}';
+
+	if (Modernizr.history) {
+		// history management works!
+	} else {
+		// no history support :(
+		//hash = unescape(window.location.hash).replace('#','').split("?")[0]
+		{# todo: fix this evil code!!! #}
+		var hash = History.unescapeHash(window.location.hash).replace('#','').split("?")[0];
+		var questions_url = askbot['urls']['questions'];
+		if (hash.substring(0, questions_url.length) === questions_url) {
+			var url = hash;
+		} else {
+			var url = questions_url + hash;
+		}
+		if (hash !== '' && hash !== undefined && url !== undefined){
+			{# was this causing strange redirects in IE??? #}
+			window.location = document.location.protocol + '//' + window.location.host + url;
+		}
+	}
+	/*]]>*/
+
+	$("#close_message_box").click(function(){
+		window.location.reload();
+	});
+
+	var refresh_box = setInterval(function(){
+
+		var main_box = $("#support-box");
+		var chat_box = document.createElement("div");
+		$(chat_box).addClass("span5").attr("id", "chat_box");
+		var message_box = document.createElement("div");
+		$(message_box).addClass("span5").attr("id", "message_box");
+
+		var chat_link = document.createElement("a");
+		var chat_img = document.createElement("img");
+		var message_link = document.createElement("a");
+		var message_img = document.createElement("img");
+
+		var refresh_call = $.ajax({
+			url: "/cats/check_state/"
+		});
+
+		refresh_call.done(function(agent){
+
+			var chat_url = "http://chats.nuevosmedios.ws/chat/?r=cats-"+agent["instance"]+"-"+agent["agent"]+"&n="+agent["user"];
+
+			var chat_active_img = "/m/kme4u-askbot-bootstrap/media/images/foro_soporte/Chat_"+agent["type"]+"_Activo.png";
+			var chat_inactive_img = "/m/kme4u-askbot-bootstrap/media/images/foro_soporte/Chat_"+agent["type"]+"_Inactivo.png";
+			var message_active_img = "/m/kme4u-askbot-bootstrap/media/images/foro_soporte/Mensaje_"+agent["type"]+"_Activo.png";
+			var message_inactive_img = "/m/kme4u-askbot-bootstrap/media/images/foro_soporte/Mensaje_"+agent["type"]+"_Inactivo.png";
+
+			if(agent["is_online"]){
+
+				$(chat_link).attr({
+					"href": chat_url,
+					"target": "_blank"
+				});
+				$(chat_img).attr("src", chat_active_img);
+				$(chat_img).appendTo(chat_link);
+				$(chat_link).appendTo(chat_box);
+
+				$(message_img).attr("src", message_inactive_img);
+				$(message_img).appendTo(message_box);
+
+			}else{
+
+				$(chat_img).attr("src", chat_inactive_img);
+				$(chat_img).appendTo(chat_box);
+
+				$(message_link).attr({
+					"href":"",
+					"role":"button",
+					"data-target":"#send_help_message",
+					"data-toggle":"modal"
+				});
+				$(message_img).attr("src", message_active_img);
+				$(message_img).appendTo(message_link);
+				$(message_link).appendTo(message_box);
+			}
+
+			$("#chat_box").remove();
+			$("#message_box").remove();
+			$(chat_box).appendTo(main_box);
+			$(message_box).appendTo(main_box);
+
+		});
+		console.log("Every fifteen minutes");
+
+	}, 900000);
+
+
+</script>
+<script type='text/javascript' src='{{"/js/editor.js"|media}}'></script>
+<script type='text/javascript' src='{{"/js/tag_selector.js"|media}}'></script>
+{% endcompress %}

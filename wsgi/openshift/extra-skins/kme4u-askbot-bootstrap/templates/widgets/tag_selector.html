@@ -1,0 +1,95 @@
+{# todo - maybe disable navigation from ignored tags here when "hide" is on - with js? #}
+{% import "macros.html" as macros %}
+{#}
+<div id="tagSelector" class="">
+    <div class="page-header muted"><h4>{% trans %}Interesting tags{% endtrans %}</h4></div>
+    {{ 
+        macros.tag_list_widget(
+            interesting_tag_names,
+            deletable = True,
+            css_class = 'interesting marked-tags',
+            search_state = search_state
+        )
+    }}
+    {# todo - add this via js
+        "remove '%(tag_name)s' from the list of interesting tags"|
+        format(tag_name = tag_name)
+    
+    <div class="clearfix"></div>
+    <div class="inputs">
+        <input id="interestingTagInput" autocomplete="off" type="text"/>
+        {#<input class="btn btn-primary" id="interestingTagAdd" type="submit" value="{% trans %}add{% endtrans %}"/>
+        <button class="btn btn-primary" id="interestingTagAdd" type="submit">{% trans %}add{% endtrans%}</button>
+    </div>
+    <div class="page-header muted"><h4>{% trans %}Ignored tags{% endtrans %}</h4></div>
+    {{
+        macros.tag_list_widget(
+            ignored_tag_names,
+            deletable = True,
+            css_class = 'ignored marked-tags',
+            search_state = search_state
+        )
+    }}
+    {# todo: add this via javascript 
+        "remove '%(tag_name)s' from the list of ignored tags"|
+        format(tag_name = tag_name)
+    
+    <div class="inputs">
+        <input id="ignoredTagInput" autocomplete="off" type="text"/>
+        {#<input class="btn btn-primary" id="ignoredTagAdd" type="submit" value="{% trans %}add{% endtrans%}"/>
+        <button class="btn btn-primary" id="ignoredTagAdd" type="submit">{% trans %}add{% endtrans%}</button>
+    </div>
+    {% if settings.SUBSCRIBED_TAG_SELECTOR_ENABLED %}
+       <div class="page-header muted"><h4>{% trans %}Subscribed tags{% endtrans %}</h4></div>
+        {{
+            macros.tag_list_widget(
+                subscribed_tag_names,
+                deletable = True,
+                css_class = 'subscribed marked-tags',
+                search_state = search_state
+            )
+        }}
+        {# todo: add this via javascript 
+            "remove '%(tag_name)s' from the list of ignored tags"|
+            format(tag_name = tag_name)
+        
+        <div class="clearfix"></div>
+        <div class="inputs">
+            <input id="subscribedTagInput" autocomplete="off" type="text"/>
+            {# <input class="btn btn-primary" id="subscribedTagAdd" type="submit" value="{% trans %}add{% endtrans%}"/>
+            <button class="btn btn-primary" id="subscribedTagAdd" type="submit">{% trans %}add{% endtrans%}</button>
+        </div>
+    {% endif %}
+    <div class="page-header muted"><h4>{% trans %}Show only questions from{% endtrans%}</h4></div>
+    <div id="displayTagFilterControl">
+        {{
+            macros.radio_select(
+                name = "display_tag_filter_strategy",
+                value = request.user.display_tag_filter_strategy,
+                choices = display_tag_filter_strategy_choices
+            )
+        }}
+    </div>
+    {% if settings.SUBSCRIBED_TAG_SELECTOR_ENABLED %}
+        <div class="page-header muted"><h4>{% trans %}Send me email alerts for{% endtrans%}</h4></div>
+        <div id="emailTagFilterControl">
+            {{
+                macros.radio_select(
+                    name = "email_tag_filter_strategy",
+                    value = request.user.email_tag_filter_strategy,
+                    choices = email_tag_filter_strategy_choices
+                )
+            }}
+            {% if request.user.is_authenticated() %}
+            <p>
+                <a 
+                    href="{% 
+                        url user_profile 
+                        request.user.id, request.user.username|slugify 
+                    %}?sort=email_subscriptions"
+                >{% trans %}Change frequency of emails{% endtrans %}</a>
+            </p>
+            {% endif %}
+        </div>
+    {% endif %}
+</div>#}

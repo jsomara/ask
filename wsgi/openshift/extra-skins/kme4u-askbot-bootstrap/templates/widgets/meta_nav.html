@@ -1,0 +1,21 @@
+{% import "macros.html" as macros%}
+<li {% if active_tab == 'tags' %}class="active"{% endif %}><a 
+  href="{% url tags %}"
+><i class="icon-tags"></i> {% trans %}tags{% endtrans %}</a></li>
+{% if settings.GROUPS_ENABLED %}
+<!-- <li class="dropdown {% if active_tab == 'groups' %}active{% endif %}"> -->
+<!-- 	{#<a id="" href="{% url groups %}" data-target="#" >#} -->
+<!-- 	<a id="" href="#" class="dropdown-toggle" data-toggle="dropdown" >{#{% url groups %}#} -->
+<!-- 		<i class="icon-user"></i> {% trans %}people & groups{% endtrans %} -->
+<!-- 	</a> -->
+<!-- </li> -->
+{%else%}
+<li {% if active_tab == 'users' %}class="active"{% endif %}><a 
+  href="{% url users %}"
+><i class="icon-user"></i> {% trans %}users{% endtrans %}</a></li>
+{% endif %}
+{% if settings.BADGES_MODE == 'public' %}
+<li {% if active_tab == 'badges' %}class="active"{% endif %}><a 
+  href="{% url badges %}"
+><i class="icon-star"></i> {% trans %}badges{% endtrans %}</a></li>
+{% endif %}
