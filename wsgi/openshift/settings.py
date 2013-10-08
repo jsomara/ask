@@ -15,7 +15,7 @@ if os.environ.has_key('OPENSHIFT_REPO_DIR'):
     ON_OPENSHIFT = True
     site.addsitedir(os.path.join(os.environ['OPENSHIFT_REPO_DIR'], 'data/askbot-devel'))
 
-DEBUG = True#set to True to enable debugging
+DEBUG = False
 TEMPLATE_DEBUG = False#keep false when debugging jinja2 templates
 INTERNAL_IPS = ('127.0.0.1',)
 
